@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>File Upload</title>
+
+</head>
+
+<body>
+<h1>Spring MVC File Upload</h1>
+<form method="POST" 
+      action="rest/controller/upload" 
+      enctype="multipart/form-data">
+      
+	Selecciona los Ficheros:
+    <input type="file" name="ficheros[]" id="ficheros" multiple/>
+    <br/>
+	</br>
+	<input type="submit" value="Upload" name="upload" id="upload" />
+</form> 
+</body> 
+</html>

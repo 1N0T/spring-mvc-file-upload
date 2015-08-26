@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+       
+	<appender name="Console" class="org.apache.log4j.ConsoleAppender">
+	   <layout class="org.apache.log4j.PatternLayout">
+	    <param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss}[%p]%m%n"/>
+	   </layout> 
+	</appender>
+
+	<category name="template.web.controller.parte.ControladorParte.class">
+		<priority value="DEBUG" />
+		<appender-ref ref="Console" />
+	</category>
+
+	<category name="java.sql.Connection">
+		<priority value="DEBUG" />
+		<appender-ref ref="Console" />
+	</category>
+	
+	<category name="java.sql.PreparedStatement"
+		additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="Console" />
+	</category>
+	
+	<category name="java.sql.Statement"
+	additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="Console" />
+	</category>
+	
+	<category name="java.sql.ResultSet"
+		additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="Console" />
+	</category>
+	 
+	<root>
+	  <priority value ="DEBUG" />
+	  <appender-ref ref="Console"/>
+	</root>
+
+	<!--
+	<root>
+	  <priority value ="INFO" />
+	  <appender-ref ref="Console"/>
+	</root>
+	-->
+
+</log4j:configuration>

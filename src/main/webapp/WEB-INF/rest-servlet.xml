@@ -1,0 +1,34 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc        
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+         
+	<context:component-scan base-package="es.tonis.spring.mvc.controllers" />
+ 	<mvc:annotation-driven />
+
+	<!--
+	Definimos el bean neceserario para tratar ficheros multipart.
+	-->
+ 	<bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+	<!--
+	Cargamos el fichero properties (donde hemos definido el directrio de descarga) que 
+	se encuentra en le classpath. Le indicamos que prevalezcan las propiedades definidas 
+	a nivel del sistema, y que ignore las variables no definidas o los ficheros no 
+	encontrados. En caso contrario no arrancará	la aplicación si alguno de los recursos, 
+	o variables, no se encuentra.
+	-->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="classpath:configuracion.properties"/>
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>	    	
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="ignoreResourceNotFound" value="true"/>
+	</bean>
+</beans>
