@@ -125,6 +125,11 @@ public class FicheroController {
 	//
 	// Resultado:
 	// 		Devuelve el fichero como adjunto o 404 si no existe
+	//
+	// Hemos indicado {fichero:.+} como parámetro, en lugar de 
+	// {fichero}. Esto es debido a que si el último parámetro contiene
+	// un punto en su valor (cosa probable en nuestro ejemplo por la
+	// extensión de los ficheros), se trunca a partir del punto.
 	// =================================================================
 
 	@RequestMapping(value = "/download/{fichero:.+}", method = RequestMethod.GET)
